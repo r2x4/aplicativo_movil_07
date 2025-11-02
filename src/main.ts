@@ -13,13 +13,29 @@ import {
   chevronForwardOutline, 
   mailOutline, 
   callOutline, 
-  locationOutline 
+  locationOutline,
+  briefcaseOutline,
+  gridOutline
 } from 'ionicons/icons';
 
 import { routes } from './app/app.routes';
 import { AppComponent } from './app/app.component';
 
-addIcons({ home, grid, logIn, settings, logOut, briefcase, chevronBackOutline, chevronForwardOutline, mailOutline, callOutline, locationOutline });
+addIcons({
+  home,
+  grid,
+  logIn,
+  settings,
+  logOut,
+  briefcase,
+  chevronBackOutline,
+  chevronForwardOutline,
+  mailOutline,
+  callOutline,
+  locationOutline,
+  briefcaseOutline,
+  gridOutline
+});
 
 bootstrapApplication(AppComponent, {
   providers: [
