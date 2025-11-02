@@ -1,8 +1,11 @@
-import { Component, OnInit, OnDestroy, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
 import { Slide } from '../../models/interfaces';
 import { CommonModule } from '@angular/common';
 import { IonIcon, IonButton } from '@ionic/angular/standalone';
+import Swiper from 'swiper';
+import { Autoplay } from 'swiper/modules';
 
+Swiper.use([Autoplay]);
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -11,7 +14,7 @@ import { IonIcon, IonButton } from '@ionic/angular/standalone';
   imports: [CommonModule, IonIcon, IonButton],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SliderComponent implements OnInit, OnDestroy {
+export class SliderComponent implements AfterViewInit {
   slides: Slide[] = [
     {
       title: 'Innovación Tecnológica',
@@ -34,36 +37,22 @@ export class SliderComponent implements OnInit, OnDestroy {
   ];
 
   currentIndex = 0;
-  private intervalId: any;
 
   @ViewChild('swiper')
   swiperRef: ElementRef | undefined;
 
-  ngOnInit() {
-    this.startAutoplay();
-    this.swiperRef?.nativeElement.swiper.on('slideChange', () => {
-      this.currentIndex = this.swiperRef?.nativeElement.swiper.realIndex;
-    });
-  }
-
-  ngOnDestroy() {
-    this.stopAutoplay();
-  }
-
-  startAutoplay() {
-    this.intervalId = setInterval(() => {
-      this.swiperRef?.nativeElement.swiper.slideNext();
-    }, 5000);
-  }
-
-  stopAutoplay() {
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
+  ngAfterViewInit() {
+    if (this.swiperRef) {
+      this.swiperRef.nativeElement.swiper.on('slideChange', () => {
+        if (this.swiperRef) {
+          this.currentIndex = this.swiperRef.nativeElement.swiper.realIndex;
+        }
+      });
     }
   }
 
   goToSlide(index: number) {
-    this.swiperRef?.nativeElement.swiper.slideTo(index);
+    this.swiperRef?.nativeElement.swiper.slideToLoop(index);
   }
 
   prev() {
