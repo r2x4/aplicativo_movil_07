@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <ion-icon name="briefcase-outline"></ion-icon>
+      TechServe Solutions
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Slider -->
+  <app-slider></app-slider>
+  
+  <!-- Contenido Principal -->
+  <div class="home-content">
+    <div class="welcome-section">
+      <h1>Bienvenido a TechServe Solutions</h1>
+      <p class="description">
+        Somos líderes en servicios tecnológicos, ofreciendo soluciones innovadoras 
+        que impulsan el crecimiento de tu negocio. Con más de una década de experiencia, 
+        transformamos desafíos en oportunidades digitales.
+      </p>
+    </div>
+    
+    <!-- Estadísticas -->
+    <ion-grid class="stats-grid">
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let stat of stats">
+          <ion-card [color]="stat.color" class="stat-card">
+            <ion-card-content>
+              <h2>{{ stat.number }}</h2>
+              <p>{{ stat.label }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <!-- Call to Action -->
+    <div class="cta-section">
+      <ion-button 
+        expand="block" 
+        size="large" 
+        color="primary"
+        (click)="navigateToServices()">
+        <ion-icon name="grid-outline" slot="start"></ion-icon>
+        Explorar Servicios
+      </ion-button>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <app-footer></app-footer>
+</ion-content>

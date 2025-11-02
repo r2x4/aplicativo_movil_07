@@ -1,0 +1,149 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Panel de Administración</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="logout()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="admin-container">
+    <!-- Botón Crear -->
+    <div class="header-section">
+      <h1>Gestión de Servicios</h1>
+      <ion-button color="success" (click)="createService()">
+        <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+        Nuevo Servicio
+      </ion-button>
+    </div>
+    
+    <!-- Formulario de Edición -->
+    <ion-card *ngIf="isEditing" class="edit-card">
+      <ion-card-header>
+        <ion-card-title>
+          {{ editingService ? 'Editar Servicio' : 'Crear Nuevo Servicio' }}
+        </ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="floating">Nombre *</ion-label>
+          <ion-input [(ngModel)]="formData.name" required></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label position="floating">Descripción *</ion-label>
+          <ion-textarea 
+            [(ngModel)]="formData.description" 
+            rows="3"
+            required>
+          </ion-textarea>
+        </ion-item>
+        
+        <ion-row>
+          <ion-col size="12" size-md="6">
+            <ion-item>
+              <ion-label position="floating">Precio *</ion-label>
+              <ion-input 
+                type="number" 
+                [(ngModel)]="formData.price"
+                required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+          
+          <ion-col size="12" size-md="6">
+            <ion-item>
+              <ion-label position="floating">Cantidad *</ion-label>
+              <ion-input 
+                type="number" 
+                [(ngModel)]="formData.quantity"
+                required>
+              </ion-input>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+        
+        <ion-item>
+          <ion-label position="floating">URL de Imagen</ion-label>
+          <ion-input [(ngModel)]="formData.image"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>En Promoción</ion-label>
+          <ion-toggle [(ngModel)]="formData.onPromotion" slot="end"></ion-toggle>
+        </ion-item>
+        
+        <div class="button-group">
+          <ion-button expand="block" (click)="saveService()" color="primary">
+            <ion-icon name="save-outline" slot="start"></ion-icon>
+            Guardar
+          </ion-button>
+          <ion-button expand="block" (click)="cancelEdit()" color="medium">
+            <ion-icon name="close-outline" slot="start"></ion-icon>
+            Cancelar
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+    
+    <!-- Tabla de Servicios -->
+    <ion-card class="services-table">
+      <ion-card-header>
+        <ion-card-title>Servicios Registrados ({{ services.length }})</ion-card-title>
+      </ion-card-header>
+      
+      <ion-card-content>
+        <div class="table-responsive">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Promoción</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let service of services">
+                <td>{{ service.id }}</td>
+                <td class="name-cell">{{ service.name }}</td>
+                <td class="price-cell">${{ service.price | number }}</td>
+                <td>{{ service.quantity }}</td>
+                <td>
+                  <ion-badge [color]="service.onPromotion ? 'danger' : 'medium'">
+                    {{ service.onPromotion ? 'Sí' : 'No' }}
+                  </ion-badge>
+                </td>
+                <td>
+                  <div class="action-buttons">
+                    <ion-button 
+                      size="small" 
+                      color="primary"
+                      (click)="editService(service)">
+                      <ion-icon name="create-outline"></ion-icon>
+                    </ion-button>
+                    <ion-button 
+                      size="small" 
+                      color="danger"
+                      (click)="deleteService(service.id)">
+                      <ion-icon name="trash-outline"></ion-icon>
+                    </ion-button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
