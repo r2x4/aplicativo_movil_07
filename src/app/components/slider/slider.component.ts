@@ -1,11 +1,7 @@
-import { Component, AfterViewInit, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
 import { Slide } from '../../models/interfaces';
 import { CommonModule } from '@angular/common';
 import { IonIcon, IonButton } from '@ionic/angular/standalone';
-import Swiper from 'swiper';
-import { Autoplay } from 'swiper/modules';
-
-Swiper.use([Autoplay]);
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
@@ -14,7 +10,7 @@ Swiper.use([Autoplay]);
   imports: [CommonModule, IonIcon, IonButton],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SliderComponent implements AfterViewInit {
+export class SliderComponent {
   slides: Slide[] = [
     {
       title: 'Innovación Tecnológica',
@@ -41,14 +37,8 @@ export class SliderComponent implements AfterViewInit {
   @ViewChild('swiper')
   swiperRef: ElementRef | undefined;
 
-  ngAfterViewInit() {
-    if (this.swiperRef) {
-      this.swiperRef.nativeElement.swiper.on('slideChange', () => {
-        if (this.swiperRef) {
-          this.currentIndex = this.swiperRef.nativeElement.swiper.realIndex;
-        }
-      });
-    }
+  onSlideChange(event: any) {
+    this.currentIndex = event.detail[0].realIndex;
   }
 
   goToSlide(index: number) {

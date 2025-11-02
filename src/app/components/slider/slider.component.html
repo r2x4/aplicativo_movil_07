@@ -1,10 +1,11 @@
-<swiper-container #swiper loop="true" [autoplay]="{ delay: 5000 }" speed="1000">
-  <swiper-slide *ngFor="let slide of slides; let i = index">
-    <div class="slide-content" [attr.data-color]="slide.color" [style.background-image]="'url(' + slide.image + ')'">
-      <div class="slide-inner">
-        <h1 class="slide-title">{{ slide.title }}</h1>
-        <p class="slide-subtitle">{{ slide.subtitle }}</p>
-      </div>
+<swiper-container #swiper loop="true" [autoplay]="{ delay: 5000 }" speed="1000" (slidechange)="onSlideChange($event)">
+  <swiper-slide *ngFor="let slide of slides; let i = index" 
+    class="slide-content" 
+    [attr.data-color]="slide.color" 
+    [style.background-image]="'url(' + slide.image + ')'">
+    <div class="slide-inner">
+      <h1 class="slide-title">{{ slide.title }}</h1>
+      <p class="slide-subtitle">{{ slide.subtitle }}</p>
     </div>
   </swiper-slide>
 </swiper-container>

@@ -1,13 +1,16 @@
-ion-slides {
+swiper-container {
   height: 400px;
 }
 
-.slide-content {
+swiper-slide {
   width: 100%;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   
   &[data-color="primary"] {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
