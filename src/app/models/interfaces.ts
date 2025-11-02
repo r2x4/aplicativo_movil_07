@@ -19,4 +19,5 @@ export interface Slide {
   title: string;
   subtitle: string;
   color: string;
+  image: string;
 }

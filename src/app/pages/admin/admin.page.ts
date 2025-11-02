@@ -42,7 +42,7 @@ export class AdminPage implements OnInit {
   formData: Partial<Service> = {
     name: '',
     description: '',
-    price: 0,
+    price: 1000000,
     image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400',
     quantity: 0,
     onPromotion: false
@@ -75,7 +75,7 @@ export class AdminPage implements OnInit {
     this.formData = {
       name: '',
       description: '',
-      price: 0,
+      price: 1000000,
       image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400',
       quantity: 0,
       onPromotion: false
@@ -145,7 +145,7 @@ export class AdminPage implements OnInit {
     this.formData = {
       name: '',
       description: '',
-      price: 0,
+      price: 1000000,
       image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=400',
       quantity: 0,
       onPromotion: false

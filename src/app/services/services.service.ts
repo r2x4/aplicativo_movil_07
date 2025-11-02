@@ -14,7 +14,7 @@ export class ServicesService {
       id: 1,
       name: 'Desarrollo Web',
       description: 'Creación de sitios y aplicaciones web a medida.',
-      price: 1200,
+      price: 4500000,
       image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400',
       quantity: 10,
       onPromotion: true
@@ -23,7 +23,7 @@ export class ServicesService {
       id: 2,
       name: 'Desarrollo Móvil',
       description: 'Aplicaciones nativas e híbridas para iOS y Android.',
-      price: 1500,
+      price: 5500000,
       image: 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=400',
       quantity: 8,
       onPromotion: false
@@ -32,7 +32,7 @@ export class ServicesService {
       id: 3,
       name: 'Consultoría TI',
       description: 'Asesoramiento estratégico para optimizar tu infraestructura tecnológica.',
-      price: 800,
+      price: 3000000,
       image: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400',
       quantity: 15,
       onPromotion: true
@@ -41,7 +41,7 @@ export class ServicesService {
       id: 4,
       name: 'Soporte Técnico',
       description: 'Soporte 24/7 para resolver cualquier incidencia.',
-      price: 500,
+      price: 1800000,
       image: 'https://images.unsplash.com/photo-1558021211-651409115993?w=400',
       quantity: 20,
       onPromotion: false

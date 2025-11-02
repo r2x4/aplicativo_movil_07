@@ -16,17 +16,20 @@ export class SliderComponent implements OnInit, OnDestroy {
     {
       title: 'Innovación Tecnológica',
       subtitle: 'Transformamos tu negocio con soluciones digitales',
-      color: 'primary'
+      color: 'primary',
+      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800'
     },
     {
       title: 'Experiencia y Calidad',
       subtitle: 'Más de 10 años liderando el mercado tecnológico',
-      color: 'success'
+      color: 'success',
+      image: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800'
     },
     {
       title: 'Soporte 24/7',
       subtitle: 'Estamos contigo en cada paso del camino',
-      color: 'warning'
+      color: 'warning',
+      image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800'
     }
   ];
 
