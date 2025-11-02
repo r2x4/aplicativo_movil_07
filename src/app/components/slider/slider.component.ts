@@ -29,6 +29,18 @@ export class SliderComponent {
       subtitle: 'Estamos contigo en cada paso del camino',
       color: 'warning',
       image: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800'
+    },
+    {
+      title: 'Seguridad Informática',
+      subtitle: 'Protegemos tus activos digitales con la última tecnología',
+      color: 'danger',
+      image: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800'
+    },
+    {
+      title: 'Análisis de Datos',
+      subtitle: 'Convertimos tus datos en decisiones estratégicas',
+      color: 'tertiary',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800'
     }
   ];
 
@@ -37,19 +49,25 @@ export class SliderComponent {
   @ViewChild('swiper')
   swiperRef: ElementRef | undefined;
 
+  swiperInstance: any;
+
+  onSwiperInit(event: any) {
+    this.swiperInstance = event.detail[0];
+  }
+
   onSlideChange(event: any) {
     this.currentIndex = event.detail[0].realIndex;
   }
 
   goToSlide(index: number) {
-    this.swiperRef?.nativeElement.swiper.slideToLoop(index);
+    this.swiperInstance?.slideToLoop(index);
   }
 
   prev() {
-    this.swiperRef?.nativeElement.swiper.slidePrev();
+    this.swiperInstance?.slidePrev();
   }
 
   next() {
-    this.swiperRef?.nativeElement.swiper.slideNext();
+    this.swiperInstance?.slideNext();
   }
 }

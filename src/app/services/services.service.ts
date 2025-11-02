@@ -41,7 +41,7 @@ export class ServicesService {
       id: 4,
       name: 'Soporte Técnico',
       description: 'Soporte 24/7 para resolver cualquier incidencia.',
-      price: 1800000,
+      price: 1800000, // Precio ajustado para el ejemplo
       image: 'https://images.unsplash.com/photo-1558021211-651409115993?w=400',
       quantity: 20,
       onPromotion: false

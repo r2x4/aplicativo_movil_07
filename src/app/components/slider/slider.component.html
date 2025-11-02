@@ -1,4 +1,4 @@
-<swiper-container #swiper loop="true" [autoplay]="{ delay: 5000 }" speed="1000" (slidechange)="onSlideChange($event)">
+<swiper-container #swiper loop="true" [autoplay]="{ delay: 5000 }" speed="1000" (slidechange)="onSlideChange($event)" (afterinit)="onSwiperInit($event)">
   <swiper-slide *ngFor="let slide of slides; let i = index" 
     class="slide-content" 
     [attr.data-color]="slide.color" 
