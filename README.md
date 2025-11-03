@@ -82,3 +82,11 @@ Duración total: **8 semanas (octubre – diciembre 2025)** con entregas semanal
 ## Imagenes
 <img width="975" height="687" alt="image" src="https://github.com/user-attachments/assets/4bbdb386-574b-4a56-b963-118b38cdfdfa" />
 
+<img width="1918" height="1075" alt="image" src="https://github.com/user-attachments/assets/19b02ac7-dc21-45fb-8c56-a81f06edb559" />
+
+<img width="1916" height="1068" alt="image" src="https://github.com/user-attachments/assets/a1cebd16-ec48-4117-bc3e-70b995f766cf" />
+
+<img width="1917" height="1077" alt="image" src="https://github.com/user-attachments/assets/ca2e32f8-3032-46c8-b899-93c211917742" />
+
+
+
