@@ -92,29 +92,5 @@ Duración total: **8 semanas (octubre – diciembre 2025)** con entregas semanal
 
 ## Arquitectura del Aplicativo 
 
-src/
-├── app/
-│   ├── components/
-│   │   ├── footer/
-│   │   │   ├── footer.component.ts
-│   │   │   ├── footer.component.html
-│   │   │   └── footer.component.scss
-│   │   └── slider/
-│   │       ├── slider.component.ts
-│   │       ├── slider.component.html
-│   │       └── slider.component.scss
-│   ├── models/
-│   │   └── interfaces.ts
-│   ├── pages/
-│   │   ├── home/
-│   │   ├── services/
-│   │   ├── service-detail/
-│   │   ├── login/
-│   │   └── admin/
-│   ├── services/
-│   │   ├── auth.service.ts
-│   │   └── services.service.ts
-│   ├── app-routing.module.ts
-│   ├── app.component.ts
-│   ├── app.component.html
-│   └── app.component.scss
+<img width="648" height="944" alt="image" src="https://github.com/user-attachments/assets/4606c2df-bab9-4c49-9104-a51ac4343cba" />
+
