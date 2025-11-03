@@ -1,5 +1,11 @@
-swiper-container {
+
+.slider-wrapper {
+  position: relative;
   height: 400px;
+}
+
+swiper-container {
+  height: 100%;
 }
 
 .slide-content {

@@ -1,30 +1,32 @@
-<swiper-container #swiper loop="true" [autoplay]="{ delay: 5000 }" speed="1000" (slidechange)="onSlideChange($event)" (afterinit)="onSwiperInit($event)">
-  <swiper-slide *ngFor="let slide of slides; let i = index" 
-    class="slide-content" 
-    [attr.data-color]="slide.color" 
-    [style.background-image]="'url(' + slide.image + ')'">
-    <div class="slide-inner">
-      <h1 class="slide-title">{{ slide.title }}</h1>
-      <p class="slide-subtitle">{{ slide.subtitle }}</p>
-    </div>
-  </swiper-slide>
-</swiper-container>
+<div class="slider-wrapper">
+  <swiper-container #swiper init="false" (slidechange)="onSlideChange($event)" (afterinit)="onSwiperInit($event)">
+    <swiper-slide *ngFor="let slide of slides; let i = index" 
+      class="slide-content" 
+      [attr.data-color]="slide.color" 
+      [style.background-image]="'url(' + slide.image + ')'">
+      <div class="slide-inner">
+        <h1 class="slide-title">{{ slide.title }}</h1>
+        <p class="slide-subtitle">{{ slide.subtitle }}</p>
+      </div>
+    </swiper-slide>
+  </swiper-container>
 
-<div class="slider-controls">
-  <ion-button fill="clear" (click)="prev()">
-    <ion-icon name="chevron-back-outline"></ion-icon>
-  </ion-button>
-  
-  <div class="slider-indicators">
-    <span 
-      *ngFor="let slide of slides; let i = index" 
-      class="indicator"
-      [class.active]="i === currentIndex"
-      (click)="goToSlide(i)">
-    </span>
+  <div class="slider-controls">
+    <ion-button fill="clear" (click)="prev()">
+      <ion-icon name="chevron-back-outline"></ion-icon>
+    </ion-button>
+    
+    <div class="slider-indicators">
+      <span 
+        *ngFor="let slide of slides; let i = index" 
+        class="indicator"
+        [class.active]="i === currentIndex"
+        (click)="goToSlide(i)">
+      </span>
+    </div>
+    
+    <ion-button fill="clear" (click)="next()">
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+    </ion-button>
   </div>
-  
-  <ion-button fill="clear" (click)="next()">
-    <ion-icon name="chevron-forward-outline"></ion-icon>
-  </ion-button>
 </div>

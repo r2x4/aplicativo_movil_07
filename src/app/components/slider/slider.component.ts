@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { Slide } from '../../models/interfaces';
 import { CommonModule } from '@angular/common';
 import { IonIcon, IonButton } from '@ionic/angular/standalone';
@@ -10,7 +10,7 @@ import { IonIcon, IonButton } from '@ionic/angular/standalone';
   imports: [CommonModule, IonIcon, IonButton],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-export class SliderComponent {
+export class SliderComponent implements AfterViewInit {
   slides: Slide[] = [
     {
       title: 'Innovación Tecnológica',
@@ -50,6 +50,21 @@ export class SliderComponent {
   swiperRef: ElementRef | undefined;
 
   swiperInstance: any;
+
+  ngAfterViewInit() {
+    if (this.swiperRef) {
+      const swiperEl = this.swiperRef.nativeElement;
+      const swiperParams = {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+        },
+        speed: 1000,
+      };
+      Object.assign(swiperEl, swiperParams);
+      swiperEl.initialize();
+    }
+  }
 
   onSwiperInit(event: any) {
     this.swiperInstance = event.detail[0];
