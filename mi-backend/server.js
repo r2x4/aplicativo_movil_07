@@ -35,7 +35,7 @@ const testDBConnection = async () => {
 
 // 4. Creamos nuestra primera "ruta" o "endpoint".
 app.get('/', (req, res) => {
-  res.json({ message: '¡El backend está funcionando correctamente! 🚀' });
+  res.json({ message: '¡El backend está funcionando correctamente!' });
 });
 
 // NUEVA RUTA: Obtener todos los usuarios
