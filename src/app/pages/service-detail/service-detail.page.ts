@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { AlertController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router'; // Importa Router
 import { ServicesService } from '../../services/services.service';
 import { Service } from '../../models/interfaces';
 import { CommonModule } from '@angular/common';
@@ -35,7 +34,7 @@ export class ServiceDetailPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private servicesService: ServicesService,
-    private alertController: AlertController
+    private router: Router // Inyecta el Router
   ) {}
 
   ngOnInit() {
@@ -43,12 +42,8 @@ export class ServiceDetailPage implements OnInit {
     this.service = this.servicesService.getServiceById(id);
   }
 
-  async requestService() {
-    const alert = await this.alertController.create({
-      header: 'Solicitud Enviada',
-      message: `Tu solicitud para ${this.service?.name} ha sido enviada correctamente. Nos pondremos en contacto contigo pronto.`,
-      buttons: ['OK']
-    });
-    await alert.present();
+  // Navega a la página de contacto
+  requestService() {
+    this.router.navigate(['/contact']);
   }
 }

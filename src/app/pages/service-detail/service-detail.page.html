@@ -45,7 +45,8 @@
                   <ion-icon name="cube-outline"></ion-icon>
                   <div>
                     <p class="label">Disponibilidad</p>
-                    <h2>{{ service.quantity }} unidades</h2>
+                    <h2 *ngIf="service.type === 'product'">{{ service.quantity }} unidades</h2>
+                    <h2 *ngIf="service.type === 'service'">Consultar disponibilidad</h2>
                   </div>
                 </div>
               </ion-card-content>

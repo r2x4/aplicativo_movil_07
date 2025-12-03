@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/services"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Contactar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="contact-form-container">
+    <h1>Solicitar Información</h1>
+    <p>
+      Completa el siguiente formulario y nos pondremos en contacto contigo a la brevedad.
+    </p>
+
+    <form [formGroup]="contactForm" (ngSubmit)="sendForm()">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Nombre Completo</ion-label>
+          <ion-input type="text" formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Teléfono</ion-label>
+          <ion-input type="tel" formControlName="phone"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="floating">Asunto o Mensaje</ion-label>
+          <ion-textarea rows="5" formControlName="subject"></ion-textarea>
+        </ion-item>
+      </ion-list>
+
+      <ion-button 
+        type="submit" 
+        expand="block" 
+        size="large" 
+        class="ion-margin-top"
+        [disabled]="contactForm.invalid">
+        <ion-icon name="send-outline" slot="start"></ion-icon>
+        Enviar Mensaje
+      </ion-button>
+    </form>
+  </div>
+
+  <app-footer></app-footer>
+</ion-content>

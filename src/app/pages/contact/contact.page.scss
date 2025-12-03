@@ -1,0 +1,30 @@
+.contact-form-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--ion-color-light);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--ion-color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--ion-color-medium-shade);
+    margin-bottom: 2rem;
+  }
+}
+
+ion-item {
+  --background: var(--ion-color-light-tint);
+  --border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+ion-button {
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}

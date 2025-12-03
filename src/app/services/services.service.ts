@@ -16,8 +16,9 @@ export class ServicesService {
       description: 'Creación de sitios y aplicaciones web a medida.',
       price: 4500000,
       image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400',
-      quantity: 10,
-      onPromotion: true
+      quantity: 0,
+      onPromotion: true,
+      type: 'service'
     },
     {
       id: 2,
@@ -25,8 +26,9 @@ export class ServicesService {
       description: 'Aplicaciones nativas e híbridas para iOS y Android.',
       price: 5500000,
       image: 'https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?w=400',
-      quantity: 8,
-      onPromotion: false
+      quantity: 0,
+      onPromotion: false,
+      type: 'service'
     },
     {
       id: 3,
@@ -34,8 +36,9 @@ export class ServicesService {
       description: 'Asesoramiento estratégico para optimizar tu infraestructura tecnológica.',
       price: 3000000,
       image: 'https://images.unsplash.com/photo-1556740758-90de374c12ad?w=400',
-      quantity: 15,
-      onPromotion: true
+      quantity: 0,
+      onPromotion: true,
+      type: 'service'
     },
     {
       id: 4,
@@ -43,8 +46,9 @@ export class ServicesService {
       description: 'Soporte 24/7 para resolver cualquier incidencia.',
       price: 1800000, // Precio ajustado para el ejemplo
       image: 'https://images.unsplash.com/photo-1558021211-651409115993?w=400',
-      quantity: 20,
-      onPromotion: false
+      quantity: 0,
+      onPromotion: false,
+      type: 'service'
     }
   ];
 

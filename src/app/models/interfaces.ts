@@ -6,6 +6,7 @@ export interface Service {
   image: string;
   quantity: number;
   onPromotion: boolean;
+  type: 'product' | 'service';
 }
 
 export interface User {
