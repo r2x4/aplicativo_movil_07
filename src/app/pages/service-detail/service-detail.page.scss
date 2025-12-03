@@ -46,9 +46,16 @@
 
 .info-grid {
   margin-bottom: 2rem;
+
+  ion-row {
+    display: flex;
+    align-items: stretch; // Esto hace que las columnas tengan la misma altura
+  }
   
   ion-card {
     margin: 0;
+    width: 100%; // Asegura que la tarjeta ocupe toda la columna
+    height: 100%; // Hace que la tarjeta ocupe toda la altura de la columna
     
     .info-item {
       display: flex;
@@ -66,9 +73,10 @@
       }
       
       h2 {
-        font-size: 2rem;
+        font-size: 1.8rem; // Reducimos un poco para que quepa bien el texto largo
         font-weight: bold;
         margin: 0;
+        line-height: 1.2; // Ajuste por si el texto se va a dos líneas
       }
     }
   }
