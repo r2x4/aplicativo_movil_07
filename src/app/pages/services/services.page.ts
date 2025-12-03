@@ -28,23 +28,13 @@ import { FooterComponent } from '../../components/footer/footer.component';
   standalone: true,
   imports: [CommonModule, FooterComponent, IonHeader, IonToolbar, IonButtons, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonBackButton, IonCardContent, IonBadge]
 })
-export class ServicesPage implements OnInit {
-  services: Service[] = [];
+export class ServicesPage {
+  services$ = this.servicesService.services$;
 
   constructor(
     private servicesService: ServicesService,
     private router: Router
   ) {}
-
-  ngOnInit() {
-    this.loadServices();
-  }
-
-  loadServices() {
-    this.servicesService.services$.subscribe(services => {
-      this.services = services;
-    });
-  }
 
   viewServiceDetail(id: number) {
     this.router.navigate(['/service-detail', id]);

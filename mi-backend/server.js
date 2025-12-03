@@ -47,19 +47,14 @@ app.get('/api/usuarios', async (req, res) => {
   }
 });
 
-// NUEVA RUTA: Endpoint para formulario de contacto
-app.post('/api/contact', async (req, res) => {
-  const { name, phone, subject } = req.body;
+// Configuración de Nodemailer (se inicializa una vez al inicio del servidor)
+let transporter;
+let testAccount;
 
-  if (!name || !phone || !subject) {
-    return res.status(400).json({ message: 'Todos los campos son requeridos.' });
-  }
-
-  // Usamos una cuenta de prueba de Ethereal para no exponer credenciales
+async function setupMailTransporter() {
   try {
-    const testAccount = await nodemailer.createTestAccount();
-
-    const transporter = nodemailer.createTransport({
+    testAccount = await nodemailer.createTestAccount();
+    transporter = nodemailer.createTransport({
       host: 'smtp.ethereal.email',
       port: 587,
       secure: false,
@@ -68,10 +63,31 @@ app.post('/api/contact', async (req, res) => {
         pass: testAccount.pass,
       },
     });
+    console.log('Transporter de Ethereal configurado con éxito.');
+  } catch (error) {
+    console.error('Error al configurar el transporter de Ethereal:', error);
+    // No salimos del proceso aquí, solo registramos el error.
+    // La ruta de contacto deberá manejar la ausencia del transporter.
+  }
+}
 
+// NUEVA RUTA: Endpoint para formulario de contacto
+app.post('/api/contact', async (req, res) => {
+  const { name, phone, subject } = req.body;
+
+  if (!name || !phone || !subject) {
+    return res.status(400).json({ message: 'Todos los campos son requeridos.' });
+  }
+
+  if (!transporter) {
+    console.error('Nodemailer transporter no está configurado. No se puede enviar el correo.');
+    return res.status(500).json({ message: 'Error interno del servidor: el servicio de correo no está disponible.' });
+  }
+
+  try {
     const mailOptions = {
       from: `"${name}" <no-reply@example.com>`,
-      to: process.env.CONTACT_EMAIL || 'destino@example.com', // El correo de contacto desde .env o uno por defecto
+      to: process.env.CONTACT_EMAIL || 'destino@example.com',
       subject: `Nuevo mensaje de contacto: ${subject}`,
       html: `
         <h1>Nuevo mensaje del formulario de contacto</h1>
@@ -85,7 +101,6 @@ app.post('/api/contact', async (req, res) => {
     const info = await transporter.sendMail(mailOptions);
 
     console.log('Mensaje enviado: %s', info.messageId);
-    // La URL para previsualizar el correo enviado en Ethereal
     console.log('URL de previsualización: %s', nodemailer.getTestMessageUrl(info));
 
     res.json({ message: 'Mensaje enviado correctamente. Se ha utilizado un servicio de prueba.' });
@@ -99,5 +114,6 @@ app.post('/api/contact', async (req, res) => {
 
 app.listen(PORT, () => {
   testDBConnection();
+  setupMailTransporter(); // Llama a la función para configurar el transporter
   console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });
