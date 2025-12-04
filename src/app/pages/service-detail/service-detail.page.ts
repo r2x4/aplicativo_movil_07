@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router'; // Importa Router
+import { Component, OnInit, inject } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ServicesService } from '../../services/services.service';
 import { Service } from '../../models/interfaces';
 import { CommonModule } from '@angular/common';
@@ -29,20 +29,17 @@ import { FooterComponent } from '../../components/footer/footer.component';
   imports: [CommonModule, FooterComponent, IonHeader, IonToolbar, IonButtons, IonBackButton, IonTitle, IonContent, IonCard, IonCardContent, IonButton, IonBadge, IonIcon, IonGrid, IonRow, IonCol]
 })
 export class ServiceDetailPage implements OnInit {
-  service: Service | undefined;
+  private route = inject(ActivatedRoute);
+  private servicesService = inject(ServicesService);
+  private router = inject(Router);
 
-  constructor(
-    private route: ActivatedRoute,
-    private servicesService: ServicesService,
-    private router: Router // Inyecta el Router
-  ) {}
+  service: Service | undefined;
 
   ngOnInit() {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.service = this.servicesService.getServiceById(id);
   }
 
-  // Navega a la página de contacto
   requestService() {
     this.router.navigate(['/contact']);
   }

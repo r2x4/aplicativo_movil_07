@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
@@ -28,14 +28,12 @@ import { FormsModule } from '@angular/forms';
   ]
 })
 export class LoginPage {
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private alertController = inject(AlertController);
+
   username = '';
   password = '';
-
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-    private alertController: AlertController
-  ) {}
 
   async login() {
     if (this.authService.login(this.username, this.password)) {

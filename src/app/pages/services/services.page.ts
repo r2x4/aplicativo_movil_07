@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicesService } from '../../services/services.service';
 import { Service } from '../../models/interfaces';
@@ -29,12 +29,10 @@ import { FooterComponent } from '../../components/footer/footer.component';
   imports: [CommonModule, FooterComponent, IonHeader, IonToolbar, IonButtons, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonCard, IonCardHeader, IonCardTitle, IonBackButton, IonCardContent, IonBadge]
 })
 export class ServicesPage {
-  services$ = this.servicesService.services$;
+  private servicesService = inject(ServicesService);
+  private router = inject(Router);
 
-  constructor(
-    private servicesService: ServicesService,
-    private router: Router
-  ) {}
+  services$ = this.servicesService.services$;
 
   viewServiceDetail(id: number) {
     this.router.navigate(['/service-detail', id]);

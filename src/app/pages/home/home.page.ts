@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import {
   IonHeader,
@@ -30,13 +30,13 @@ import { FooterComponent } from '../../components/footer/footer.component';
   ]
 })
 export class HomePage {
+  private router = inject(Router);
+
   stats = [
     { number: '500+', label: 'Proyectos Completados', color: 'primary' },
     { number: '250+', label: 'Clientes Satisfechos', color: 'success' },
     { number: '24/7', label: 'Soporte Técnico', color: 'warning' }
   ];
-
-  constructor(private router: Router) {}
 
   navigateToServices() {
     this.router.navigate(['/services']);

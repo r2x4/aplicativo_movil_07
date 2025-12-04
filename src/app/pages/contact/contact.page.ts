@@ -1,5 +1,5 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
@@ -19,22 +19,16 @@ import { FooterComponent } from '../../components/footer/footer.component';
     HttpClientModule,
   ],
 })
-export class ContactPage implements OnInit {
-  contactForm: FormGroup;
+export class ContactPage {
+  private fb = inject(FormBuilder);
+  private http = inject(HttpClient);
+  private router = inject(Router);
 
-  constructor(
-    private fb: FormBuilder,
-    private http: HttpClient,
-    private router: Router
-  ) {
-    this.contactForm = this.fb.group({
-      name: ['', Validators.required],
-      phone: ['', Validators.required],
-      subject: ['', Validators.required],
-    });
-  }
-
-  ngOnInit() {}
+  contactForm: FormGroup = this.fb.group({
+    name: ['', Validators.required],
+    phone: ['', Validators.required],
+    subject: ['', Validators.required],
+  });
 
   sendForm() {
     if (this.contactForm.valid) {

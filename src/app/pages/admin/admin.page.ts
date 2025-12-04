@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { ServicesService } from '../../services/services.service';
@@ -35,6 +35,11 @@ import {
   imports: [CommonModule, FormsModule, IonHeader, IonToolbar, IonTitle, IonButtons, IonBackButton, IonButton, IonIcon, IonContent, IonItem, IonLabel, IonInput, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonRow, IonCol, IonBadge]
 })
 export class AdminPage implements OnInit {
+  private servicesService = inject(ServicesService);
+  private authService = inject(AuthService);
+  private router = inject(Router);
+  private alertController = inject(AlertController);
+
   services: Service[] = [];
   isEditing = false;
   editingService: Service | null = null;
@@ -47,13 +52,6 @@ export class AdminPage implements OnInit {
     quantity: 0,
     onPromotion: false
   };
-
-  constructor(
-    private servicesService: ServicesService,
-    private authService: AuthService,
-    private router: Router,
-    private alertController: AlertController
-  ) {}
 
   ngOnInit() {
     if (!this.authService.isAuthenticated()) {

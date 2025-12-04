@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { CommonModule } from '@angular/common';
@@ -25,6 +25,9 @@ import {
   imports: [CommonModule, RouterModule, IonApp, IonSplitPane, IonMenu, IonContent, IonList, IonListHeader, IonNote, IonMenuToggle, IonItem, IonIcon, IonLabel, IonRouterOutlet],
 })
 export class AppComponent {
+  public authService = inject(AuthService);
+  private router = inject(Router);
+
   public appPages = [
     {
       title: 'Inicio',
@@ -49,11 +52,6 @@ export class AppComponent {
       requiresAuth: true
     }
   ];
-
-  constructor(
-    public authService: AuthService,
-    private router: Router
-  ) {}
 
   logout() {
     this.authService.logout();
