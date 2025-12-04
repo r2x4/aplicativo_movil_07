@@ -23,6 +23,7 @@ aplicativo_movil_07/
 ## 🚀 Primeras Ejecuciones
 
 ### **Primera vez - Setup Completo (Windows):**
+
 ```bash
 # Doble clic en:
 setup.bat
@@ -34,6 +35,7 @@ cd ..
 ```
 
 ### **Primera vez - Setup Completo (Mac/Linux):**
+
 ```bash
 npm install
 cd mi-backend && npm install
@@ -47,11 +49,13 @@ cd ..
 ### **Opción 1: Ambos a la vez (Recomendado)**
 
 **Windows - Doble clic:**
+
 ```
 start.bat
 ```
 
 **Terminal (cualquier SO):**
+
 ```bash
 npm run dev
 ```
@@ -59,12 +63,14 @@ npm run dev
 ### **Opción 2: Separado (Debugging)**
 
 **Terminal 1 - Frontend:**
+
 ```bash
 npm start
 # Abierto en: http://localhost:4200
 ```
 
 **Terminal 2 - Backend:**
+
 ```bash
 cd mi-backend
 npm start          # O: npm run dev (con hot-reload)
@@ -77,22 +83,22 @@ npm start          # O: npm run dev (con hot-reload)
 
 ### **Desde raíz (`c:\aplicativo_movil_07\`):**
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm start` | Inicia solo el frontend |
-| `npm run dev` | Inicia frontend + backend (concurrently) |
-| `npm run backend` | Inicia solo el backend |
-| `npm run lint` | Ejecuta ESLint |
-| `npm test` | Ejecuta tests (Karma) |
-| `npm run build` | Build de producción |
+| Comando           | Descripción                              |
+| ----------------- | ---------------------------------------- |
+| `npm start`       | Inicia solo el frontend                  |
+| `npm run dev`     | Inicia frontend + backend (concurrently) |
+| `npm run backend` | Inicia solo el backend                   |
+| `npm run lint`    | Ejecuta ESLint                           |
+| `npm test`        | Ejecuta tests (Karma)                    |
+| `npm run build`   | Build de producción                      |
 
 ### **Desde backend (`c:\aplicativo_movil_07\mi-backend\`):**
 
-| Comando | Descripción |
-|---------|-------------|
-| `npm start` | Inicia servidor Node (producción) |
-| `npm run dev` | Inicia con nodemon (desarrollo, hot-reload) |
-| `npm run serve` | Alias para start |
+| Comando         | Descripción                                 |
+| --------------- | ------------------------------------------- |
+| `npm start`     | Inicia servidor Node (producción)           |
+| `npm run dev`   | Inicia con nodemon (desarrollo, hot-reload) |
+| `npm run serve` | Alias para start                            |
 
 ---
 
@@ -124,7 +130,7 @@ Archivo: `src/environments/environment.ts`
 ```typescript
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:3000'  // Backend URL
+  apiUrl: "http://localhost:3000", // Backend URL
 };
 ```
 
@@ -143,12 +149,14 @@ POST   /api/contact         # Enviar formulario de contacto
 ## 🐛 Debugging
 
 ### **Frontend - Chrome DevTools**
+
 1. Abre: http://localhost:4200
 2. Presiona: `F12`
 3. Network → verifica peticiones a `http://localhost:3000`
 4. Console → revisa errores
 
 ### **Backend - Logs en Terminal**
+
 ```bash
 # Con nodemon (recomendado):
 cd mi-backend && npm run dev
@@ -159,6 +167,7 @@ cd mi-backend && npm run dev
 ```
 
 ### **Database - MySQL**
+
 ```bash
 # Acceder a BD:
 mysql -u root -p
@@ -171,6 +180,7 @@ SELECT * FROM usuarios;
 ## 📦 Instalar Dependencias Nuevas
 
 ### **Frontend:**
+
 ```bash
 npm install nombre-paquete
 # O para devDependencies:
@@ -178,6 +188,7 @@ npm install --save-dev nombre-paquete
 ```
 
 ### **Backend:**
+
 ```bash
 cd mi-backend
 npm install nombre-paquete
@@ -189,6 +200,7 @@ cd ..
 ## 🧪 Tests
 
 ### **Ejecutar tests:**
+
 ```bash
 npm test
 # Se abre Karma en navegador
@@ -196,6 +208,7 @@ npm test
 ```
 
 ### **Lint:**
+
 ```bash
 npm run lint
 # Muestra errores y warnings
@@ -206,6 +219,7 @@ npm run lint
 ## 🔄 Git Workflow
 
 ### **Hacer commit:**
+
 ```bash
 git add .
 git commit -m "descripción del cambio"
@@ -213,6 +227,7 @@ git push origin main
 ```
 
 ### **Crear rama para features:**
+
 ```bash
 git checkout -b feature/nombre-feature
 # ... hacer cambios ...
@@ -227,6 +242,7 @@ git push origin feature/nombre-feature
 ## 📱 Probar en Dispositivo/Emulador
 
 ### **Android Emulator:**
+
 ```bash
 # Asegúrate que emulador está corriendo
 ionic serve --external
@@ -237,6 +253,7 @@ ionic cap build android
 ```
 
 ### **iOS (solo en Mac):**
+
 ```bash
 ionic build ios
 ionic cap build ios
@@ -247,21 +264,25 @@ ionic cap build ios
 ## 🚨 Problemas Comunes
 
 ### **"Error: Cannot find module 'express'"**
+
 ```bash
 cd mi-backend
 npm install
 ```
 
 ### **"CORS error en el navegador"**
+
 - Verifica que backend está corriendo en `http://localhost:3000`
 - Revisa Network tab en DevTools
 
 ### **"MySQL connection failed"**
+
 - Verifica que MySQL está corriendo
 - Revisa credenciales en `mi-backend/.env`
 - Confirma que la BD existe: `USE aplicativo_movil_07;`
 
 ### **"Puerto 3000 ya está en uso"**
+
 ```bash
 # Windows:
 netstat -ano | findstr :3000
@@ -273,6 +294,7 @@ kill -9 <numero_PID>
 ```
 
 ### **"nodemon: comando no encontrado"**
+
 ```bash
 cd mi-backend
 npm install
@@ -303,6 +325,7 @@ cd ..
 ## 📞 Soporte
 
 Si tienes problemas:
+
 1. Revisa esta guía
 2. Chequea los logs en terminal
 3. Abre un Issue en GitHub
