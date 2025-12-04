@@ -8,13 +8,13 @@ c:\aplicativo_movil_07\android\app\build\outputs\apk\debug\app-debug.apk
 
 ## 📊 Información del APK
 
-| Propiedad | Valor |
-|-----------|-------|
-| **Nombre** | app-debug.apk |
+| Propiedad  | Valor                     |
+| ---------- | ------------------------- |
+| **Nombre** | app-debug.apk             |
 | **Tamaño** | 4.79 MB (4,789,638 bytes) |
-| **Tipo** | Debug APK |
-| **Fecha** | 03/12/2025 20:03 |
-| **Estado** | ✅ Listo para instalar |
+| **Tipo**   | Debug APK                 |
+| **Fecha**  | 03/12/2025 20:03          |
+| **Estado** | ✅ Listo para instalar    |
 
 ---
 
@@ -59,6 +59,7 @@ copy android\app\build\outputs\apk\debug\app-debug.apk .\app-debug-final.apk
 ## 🔑 Datos de Configuración
 
 El APK incluye:
+
 - ✅ Angular 20 Frontend compilado
 - ✅ Ionic 8 Framework integrado
 - ✅ Capacitor 7.4 Plugins
@@ -71,11 +72,12 @@ Editar: `src/environments/environment.prod.ts`
 ```typescript
 export const environment = {
   production: true,
-  apiUrl: 'https://api.tudominio.com'  // Cambiar aquí
+  apiUrl: "https://api.tudominio.com", // Cambiar aquí
 };
 ```
 
 Luego recompilar:
+
 ```bash
 ionic build --prod
 npx cap sync android
@@ -129,12 +131,14 @@ Resultado: `app-release.apk` listo para publicar en Google Play
 ## ⚠️ Troubleshooting
 
 ### **"Error: unknown failure"**
+
 ```bash
 adb uninstall com.techserve.movil
 adb install -r android\app\build\outputs\apk\debug\app-debug.apk
 ```
 
 ### **"Device not found"**
+
 ```bash
 adb devices  # Verificar lista de dispositivos
 # Si está offline:
@@ -142,6 +146,7 @@ adb reconnect
 ```
 
 ### **"Sesión de Android timeout"**
+
 ```bash
 adb kill-server
 adb start-server
@@ -173,9 +178,10 @@ adb shell pm list packages | findstr techserve
 
 ## 🎉 ¡Completado!
 
-Tu aplicación **TechServe Solutions** está lista para probar. 
+Tu aplicación **TechServe Solutions** está lista para probar.
 
 **Resumen de la compilación:**
+
 - ✅ Angular build: Exitoso (1.07 MB)
 - ✅ Capacitor sync: Exitoso
 - ✅ Gradle build: Exitoso
