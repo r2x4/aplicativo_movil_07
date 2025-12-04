@@ -9,6 +9,27 @@ Este proyecto forma parte del desarrollo académico y profesional de soluciones 
 
 ---
 
+## ⚡ Guía Rápida de Inicio
+
+### **Windows - Doble clic para iniciar:**
+```bash
+start.bat
+```
+Esto abre 2 terminales automáticamente con Frontend + Backend.
+
+### **Mac/Linux - En terminal:**
+```bash
+bash start.sh
+# O usa npm directamente:
+npm run dev
+```
+
+### **Direcciones:**
+- 🌐 **Frontend**: http://localhost:4200
+- 🔧 **Backend**: http://localhost:3000
+
+---
+
 ## 🎯 Objetivo General
 
 Desarrollar e implementar una aplicación móvil para **TechServe Solutions** que permita gestionar y comercializar servicios tecnológicos de forma digital, completando el **100% de las funcionalidades del MVP** en 8 semanas.

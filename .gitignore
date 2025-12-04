@@ -68,4 +68,19 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Backend
 mi-backend/node_modules/
+mi-backend/.env
+mi-backend/.env.local
+mi-backend/.env.production
+
+# Environment variables (archivos sensibles)
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/launch.json
+.vscode/settings.json
+
